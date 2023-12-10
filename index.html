@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,9 +10,7 @@
     <div>
       <header>
         <nav>
-          <button>Today</button>
-          <button id="prev">prev</button>
-          <button id="next">next</button>
+         
         </nav>
       </header>
 
@@ -20,24 +18,6 @@
     </div>
 
     <script type="module" src="/main.js"></script>
-    <script type="module" src="js/model.js"></script>
-    <script type="module">
-      import { mmi1 } from "./js/model.js";
-      import { uicalendar } from "./main.js";
-      window.mmi1 = mmi1;
-      window.uicalendar = uicalendar;
-
-      window.ev =  {
-          id: '1',
-          calendarId: '1',
-          title: 'my event',
-          category: 'time',
-          dueDateClass: '',
-          start: '2023-12-08T22:30:00+09:00',
-          end: '2023-12-09T02:30:00+09:00',
-      }
-  
-    </script>
     
   </body>
 </html>

@@ -1,48 +1,42 @@
-import Calendar from '@toast-ui/calendar';
-import '@toast-ui/calendar/dist/toastui-calendar.min.css';
+import { M } from "./js/model.js";
+import { V } from "./js/view.js";
 
-export const uicalendar = new Calendar('#calendar', {
-  defaultView: 'week',
-  isReadOnly: true,
-  usageStatistics: false,
-  useDetailPopup: true,
-  week: {
-    startDayOfWeek: 1,
-    dayNames: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-    workweek: true,
-    hourStart: 8,
-    hourEnd: 20,
-    taskView: false,
-    eventView: ['time'],
+/*
+   Ce fichier correspond au contrôleur de l'application. Il est chargé de faire le lien entre le modèle et la vue.
+   Le modèle et la vue sont définis dans les fichiers js/model.js et js/view.js et importés (M et V, parties "publiques") dans ce fichier.
+   Le modèle contient les données (les événements des 3 années de MMI).
+   La vue contient tout ce qui est propre à l'interface et en particulier le composant Toast UI Calendar.
+   Le principe sera toujours le même : le contrôleur va récupérer les données du modèle et les passer à la vue.
+   Toute opération de filtrage des données devra être définie dans le modèle.
+   Et en fonction des actions de l'utilisateur, le contrôleur pourra demander au modèle de lui retourner des données filtrées
+   pour ensuite les passer à la vue pour affichage.
+
+   Exception : Afficher 1, 2 ou les 3 années de formation sans autre filtrage peut être géré uniquement au niveau de la vue.
+*/
+   
+
+// loadind data (and wait for it !)
+await M.init();
+
+// sample events for testing
+let edt = [
+  {
+    id: '1',
+    calendarId: '1',
+    title: 'my event',
+    category: 'time',
+    start: '2023-12-11T08:30:00',
+    end: '2023-12-11T10:30:00',
   },
-  template: {
-    time(event) {
-      const { start, body, title } = event;
-
-      return `<span style="color: white;">${title}</span><br><span style="color: white;">${body}</span>`;
-    }
+  {
+    id: '2',
+    calendarId: '1',
+    title: 'second event',
+    category: 'time',
+    start: '2023-12-13T14:00:00',
+    end: '2023-12-13T15:30:00',
   },
- 
- 
-});
+]
 
-
-let $ = function (selector) {
-  return document.querySelector(selector);
-}
-
-let today = $('button');
-today.addEventListener('click', function () {
-  uicalendar.today();
-});
-
-let prev = $('#prev');
-prev.addEventListener('click', function () {
-  uicalendar.prev();
-});
-
-let next = $('#next');
-next.addEventListener('click', function () {
-  uicalendar.next();
-});
-
+// creating events in the calendar
+V.uicalendar.createEvents( edt );

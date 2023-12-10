@@ -3,13 +3,27 @@ import ical from 'ical';
 import { EventManager } from './class/event-manager';
 
 
-let content = await fetch('./data/mmi1.ics');
-content = await content.text();
+let M = {
+    events: {
+        mmi1: null,
+        mmi2: null,
+        mmi3: null
+    }
+ }
 
-const data = ical.parseICS(content);
+M.getEvents = function(annee) {
+    if ( annee in M.events ) {
+        return M.events[annee].toObject();
+    }
+    return null;
+}
 
-//console.log(data);
+M.init = async function() {
+    let data = await fetch('./data/mmi1.ics');
+    data = await data.text();
+    data = ical.parseICS(data);
+    M.events.mmi1 = new EventManager('mmi1', 'MMI 1', 'Agenda des MMI 1');
+    M.events.mmi1.addEvents(data);
+}
 
-export let mmi1 = new EventManager('MMI1', 'MMI1', 'Calendrier des cours MMI1');
-mmi1.addEvents(data);
-console.log(mmi1.toObject());
+export { M };
