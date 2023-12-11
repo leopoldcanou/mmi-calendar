@@ -41,3 +41,21 @@ let edt = [
 // creating events in the calendar
 V.uicalendar.createEvents(edt);
 V.uicalendar.createEvents(M.getEvents("mmi1")); //affiche le calendrier MMI1
+
+// event listener on click on button id day
+let day = document.getElementById("today");
+day.addEventListener("click", function () {
+  V.uicalendar.today();
+});
+
+// event listener on click on button id week
+let week = document.getElementById("prev");
+week.addEventListener("click", function () {
+  V.uicalendar.prev();
+});
+
+// event listener on click on button id month
+let month = document.getElementById("next");
+month.addEventListener("click", function () {
+  V.uicalendar.next();
+});
