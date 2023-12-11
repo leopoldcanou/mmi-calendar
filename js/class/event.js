@@ -96,6 +96,7 @@ class Event {
       end: this.#end,
       location: this.#location,
       backgroundColor: this.color,
+      borderColor: "none",
     };
   }
 }

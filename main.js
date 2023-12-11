@@ -66,3 +66,20 @@ let month = document.getElementById("next");
 month.addEventListener("click", function () {
   V.uicalendar.next();
 });
+
+// check the select element with id "year" and change the calendar
+let year = document.getElementById("year");
+year.addEventListener("change", function () {
+  let selectedYear = year.value;
+  let selectedCalendar = M.getEvents(selectedYear);
+  if (selectedYear == "all") {
+    console.log("all");
+    V.uicalendar.clear();
+    V.uicalendar.createEvents(M.getEvents("mmi1"));
+    V.uicalendar.createEvents(M.getEvents("mmi2"));
+    V.uicalendar.createEvents(M.getEvents("mmi3"));
+  } else {
+    V.uicalendar.clear();
+    V.uicalendar.createEvents(selectedCalendar);
+  }
+});
