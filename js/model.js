@@ -17,11 +17,23 @@ M.getEvents = function (annee) {
 };
 
 M.init = async function () {
-  let data = await fetch("./data/mmi1.ics"); // récupère le fichier
-  data = await data.text(); // récupère au format texte
-  data = ical.parseICS(data); // convertit data en JSON
+  let mmi1data = await fetch("./data/mmi1.ics"); // récupère le fichier
+  mmi1data = await mmi1data.text(); // récupère au format texte
+  mmi1data = ical.parseICS(mmi1data); // convertit data en JSON
   Events.mmi1 = new EventManager("mmi1", "MMI 1", "Agenda des MMI 1");
-  Events.mmi1.addEvents(data);
+  Events.mmi1.addEvents(mmi1data);
+
+  let mmi2data = await fetch("./data/mmi2.ics"); // récupère le fichier
+  mmi2data = await mmi2data.text(); // récupère au format texte
+  mmi2data = ical.parseICS(mmi2data); // convertit data en JSON
+  Events.mmi2 = new EventManager("mmi2", "MMI 2", "Agenda des MMI 2");
+  Events.mmi2.addEvents(mmi2data);
+
+  let mmi3data = await fetch("./data/mmi3.ics"); // récupère le fichier
+  mmi3data = await mmi3data.text(); // récupère au format texte
+  mmi3data = ical.parseICS(mmi3data); // convertit data en JSON
+  Events.mmi3 = new EventManager("mmi3", "MMI 3", "Agenda des MMI 3");
+  Events.mmi3.addEvents(mmi3data);
 };
 
 export { M };

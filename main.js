@@ -39,10 +39,17 @@ let edt = [
 ];
 
 // creating events in the calendar
-V.uicalendar.createEvents(edt);
+// V.uicalendar.createEvents(edt);
+
 V.uicalendar.createEvents(M.getEvents("mmi1")); //affiche le calendrier MMI1
 
+V.uicalendar.createEvents(M.getEvents("mmi2")); //affiche le calendrier MMI2
+
+V.uicalendar.createEvents(M.getEvents("mmi3")); //affiche le calendrier MMI3
+
+//change la couleur du calendrier MMI1
 // event listener on click on button id day
+
 let day = document.getElementById("today");
 day.addEventListener("click", function () {
   V.uicalendar.today();
