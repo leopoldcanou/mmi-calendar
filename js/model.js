@@ -1,32 +1,30 @@
-
-import ical from 'ical';
-import { EventManager } from './class/event-manager';
+import ical from "ical";
+import { EventManager } from "./class/event-manager";
 
 let Events = {
-    mmi1: null,
-    mmi2: null,
-    mmi3: null
-}
+  mmi1: null,
+  mmi2: null,
+  mmi3: null,
+};
 
 let M = {};
 
-M.getEvents = function(annee) {
-    if ( annee in Events ) {
-        return Events[annee].toObject();
-    }
-    return null;
-}
+M.getEvents = function (annee) {
+  if (annee in Events) {
+    return Events[annee].toObject();
+  }
+  return null;
+};
 
-M.init = async function() {
-    let data = await fetch('./data/mmi1.ics');
-    data = await data.text();
-    data = ical.parseICS(data);
-    Events.mmi1 = new EventManager('mmi1', 'MMI 1', 'Agenda des MMI 1');
-    Events.mmi1.addEvents(data);
-}
+M.init = async function () {
+  let data = await fetch("./data/mmi1.ics"); // récupère le fichier
+  data = await data.text(); // récupère au format texte
+  data = ical.parseICS(data); // convertit data en JSON
+  Events.mmi1 = new EventManager("mmi1", "MMI 1", "Agenda des MMI 1");
+  Events.mmi1.addEvents(data);
+};
 
 export { M };
-
 
 /*
     On notera que si tout ce qui est dans ce fichier concerne le modèle, seul ce qui est dans M est exporté (et donc accessible depuis l'extérieur).
