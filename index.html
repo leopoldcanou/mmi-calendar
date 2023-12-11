@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -6,18 +6,19 @@
     <title>MMI Calendar</title>
   </head>
   <body>
-  
     <div>
       <header>
-        <nav>
-         
-        </nav>
+        <nav></nav>
       </header>
-
+      <nav class="navbar">
+        <button id="today">Today</button>
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+        <span class="navbar--range"></span>
+      </nav>
       <main id="calendar" style="height: 800px"></main>
     </div>
 
     <script type="module" src="/main.js"></script>
-    
   </body>
 </html>
