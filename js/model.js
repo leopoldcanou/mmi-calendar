@@ -36,6 +36,7 @@ M.init = async function () {
   Events.mmi3.addEvents(mmi3data);
 };
 
+// RAPPEL ESSAYE DE FAIRE PAREIL QUE LA FONCTION POUR LES COULEURS
 export { M };
 
 /*
