@@ -83,6 +83,7 @@ class Event {
         return colorMap[words];
       }
     }
+    return this.#backgroundColor[this.#year].SAE;
   }
 
   // retourne un objet contenant les informations de l'événement
@@ -97,6 +98,7 @@ class Event {
       location: this.#location,
       backgroundColor: this.color,
       borderColor: "none",
+      group: this.#groups,
     };
   }
 }

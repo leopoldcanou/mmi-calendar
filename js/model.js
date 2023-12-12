@@ -16,11 +16,6 @@ M.getEvents = function (annee) {
   return null;
 };
 
-let G1 = "G1";
-let G21 = "G21";
-let G22 = "G22";
-let G3 = "G3";
-
 M.init = async function () {
   let mmi1data = await fetch("./data/mmi1.ics"); // récupère le fichier
   mmi1data = await mmi1data.text(); // récupère au format texte
@@ -41,14 +36,7 @@ M.init = async function () {
   Events.mmi3.addEvents(mmi3data);
 };
 
-let groupfilter = function (annee, groupe) {
-  for (const elements in annee) {
-    console.log(mmi2data[elements].summary);
-
-    // RAPPEL ESSAYE DE FAIRE PAREIL QUE LA FONCTION POUR LES COULEURS
-  }
-};
-
+// RAPPEL ESSAYE DE FAIRE PAREIL QUE LA FONCTION POUR LES COULEURS
 export { M };
 
 /*

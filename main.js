@@ -67,19 +67,48 @@ month.addEventListener("click", function () {
   V.uicalendar.next();
 });
 
-// check the select element with id "year" and change the calendar
-let year = document.getElementById("year");
-year.addEventListener("change", function () {
-  let selectedYear = year.value;
-  let selectedCalendar = M.getEvents(selectedYear);
-
-  if (selectedYear == "all") {
-    V.uicalendar.clear();
-    V.uicalendar.createEvents(M.getEvents("mmi1"));
-    V.uicalendar.createEvents(M.getEvents("mmi2"));
-    V.uicalendar.createEvents(M.getEvents("mmi3"));
+// check checkbox mmi1 mmi2 mmi3 and if checked display the calendar
+let mmi1 = document.getElementById("mmi1");
+mmi1.addEventListener("change", function () {
+  if (mmi1.checked) {
+    V.uicalendar.setCalendarVisibility("mmi1", true);
   } else {
-    V.uicalendar.clear();
-    V.uicalendar.createEvents(selectedCalendar);
+    V.uicalendar.setCalendarVisibility("mmi1", false);
   }
+});
+
+let mmi2 = document.getElementById("mmi2");
+mmi2.addEventListener("change", function () {
+  if (mmi2.checked) {
+    V.uicalendar.setCalendarVisibility("mmi2", true);
+  } else {
+    V.uicalendar.setCalendarVisibility("mmi2", false);
+  }
+});
+
+let mmi3 = document.getElementById("mmi3");
+mmi3.addEventListener("change", function () {
+  if (mmi3.checked) {
+    V.uicalendar.setCalendarVisibility("mmi3", true);
+  } else {
+    V.uicalendar.setCalendarVisibility("mmi3", false);
+  }
+});
+
+function filterEvents(year, group) {
+  let events = M.getEvents(year);
+  let filteredEvents = events.filter((event) =>
+    event.group.toString().includes(group)
+  );
+  V.uicalendar.clear(); // Clear existing events
+  V.uicalendar.createEvents(filteredEvents); // Recreate events based on the filter
+}
+
+let data = document.getElementById("group");
+data.addEventListener("change", function () {
+  let selectedOption = data.options[data.selectedIndex];
+  let selectedDataId = selectedOption.getAttribute("data-year");
+  let selectedValue = selectedOption.getAttribute("data-group");
+  //groupfilters(selectedDataId, selectedValue);
+  filterEvents(selectedDataId, selectedValue);
 });
