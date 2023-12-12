@@ -117,9 +117,12 @@ data.addEventListener("change", function () {
 });
 
 function searchEvents(content) {
-  // stack mmi1 mmi2 mmi3 events in one array
+  // Divise le contenu en mots-clés distincts
+  const keywords = content.trim().toLowerCase().split(" ");
+
+  // Regroupe les événements mmi1, mmi2 et mmi3 dans un seul tableau
   let events;
-  if (currentEvents == undefined) {
+  if (currentEvents === undefined) {
     events = M.getEvents("mmi1").concat(
       M.getEvents("mmi2"),
       M.getEvents("mmi3")
@@ -128,14 +131,20 @@ function searchEvents(content) {
     events = currentEvents;
   }
 
-  let filteredEvents = events.filter(
-    (event) =>
-      event.title.toString().includes(content) ||
-      event.location.toString().includes(content)
+  // Filtrer les événements pour ceux qui contiennent tous les mots-clés saisis
+  let filteredEvents = events.filter((event) =>
+    keywords.every(
+      (keyword) =>
+        event.title.toString().toLowerCase().includes(keyword) ||
+        event.location.toString().toLowerCase().includes(keyword)
+    )
   );
+
   console.log(filteredEvents);
-  V.uicalendar.clear(); // Clear existing events
-  V.uicalendar.createEvents(filteredEvents); // Recreate events based on the filter
+
+  // Effacer les événements existants et mettre à jour le calendrier avec les événements filtrés
+  V.uicalendar.clear();
+  V.uicalendar.createEvents(filteredEvents);
 }
 
 let searchbar = document.getElementById("searchbar");
