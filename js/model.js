@@ -44,6 +44,8 @@ M.init = async function () {
 let groupfilter = function (annee, groupe) {
   for (const elements in annee) {
     console.log(mmi2data[elements].summary);
+
+    // RAPPEL ESSAYE DE FAIRE PAREIL QUE LA FONCTION POUR LES COULEURS
   }
 };
 
