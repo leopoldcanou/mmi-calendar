@@ -193,3 +193,4 @@ searchbar.addEventListener("keyup", function () {
 
 let year = localStorage.getItem("year");
 let group = localStorage.getItem("group");
+let displaystorage = localStorage.getItem("display");
