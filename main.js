@@ -147,11 +147,14 @@ data.addEventListener("change", function () {
   let selectedOption = data.options[data.selectedIndex];
   let selectedDataId = selectedOption.getAttribute("data-year");
   let selectedValue = selectedOption.getAttribute("data-group");
+  localStorage.setItem("year", selectedDataId);
+  localStorage.setItem("group", selectedValue);
   //groupfilters(selectedDataId, selectedValue);
   filterEvents(selectedDataId, selectedValue);
 });
 
 function searchEvents(content) {
+  console.log(year, group);
   // Divise le contenu en mots-clés distincts
   const keywords = content.trim().toLowerCase().split(" ");
 
@@ -187,3 +190,6 @@ searchbar.addEventListener("keyup", function () {
   let searchValue = searchbar.value;
   searchEvents(searchValue);
 });
+
+let year = localStorage.getItem("year");
+let group = localStorage.getItem("group");
