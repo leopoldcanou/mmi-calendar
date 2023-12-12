@@ -40,6 +40,28 @@ let edt = [
 
 // creating events in the calendar
 // V.uicalendar.createEvents(edt);
+function mediaQuery() {
+  let day = document.getElementById("day");
+  let week = document.getElementById("week");
+  if (window.matchMedia("(min-width: 450px)").matches) {
+    /* the view port is at least 450 pixels wide */
+    V.uicalendar.changeView("week");
+    // add atribute selected to week
+    week.setAttribute("selected", "selected");
+    day.removeAttribute("selected");
+  } else {
+    /* the view port is less than 400 pixels wide */
+    V.uicalendar.changeView("day");
+    // add atribute selected to day
+    day.setAttribute("selected", "selected");
+    week.removeAttribute("selected");
+  }
+}
+mediaQuery();
+
+addEventListener("resize", (event) => {
+  mediaQuery();
+});
 
 V.uicalendar.createEvents(M.getEvents("mmi1")); //affiche le calendrier MMI1
 
