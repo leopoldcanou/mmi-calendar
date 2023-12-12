@@ -32,20 +32,32 @@
           </li>
         </ul>
         <select name="group" id="group">
-          <option data-year="mmi1" data-group="G1">BUT1 - G1</option>
-          <option data-year="mmi1" data-group="G21">BUT1 - G21</option>
-          <option data-year="mmi1" data-group="G22">BUT1 - G22</option>
-          <option data-year="mmi1" data-group="G3">BUT1 - G3</option>
-          <option data-year="mmi2" data-group="G1">BUT2 - G1</option>
-          <option data-year="mmi2" data-group="G21">BUT2 - G21</option>
-          <option data-year="mmi2" data-group="G22">BUT2 - G22</option>
-          <option data-year="mmi2" data-group="G3">BUT2 - G3</option>
-          <option data-year="mmi3" data-group="G1">BUT3 - G1</option>
-          <option data-year="mmi3" data-group="G21">BUT3 - G21</option>
-          <option data-year="mmi3" data-group="G22">BUT3 - G22</option>
-          <option data-year="mmi3" data-group="G3">BUT3 - G3</option>
+          <optgroup label="BUT1">
+            <option data-year="mmi1" data-group="G1">BUT1 - G1</option>
+            <option data-year="mmi1" data-group="G21">BUT1 - G21</option>
+            <option data-year="mmi1" data-group="G22">BUT1 - G22</option>
+            <option data-year="mmi1" data-group="G3">BUT1 - G3</option>
+          </optgroup>
+          <optgroup label="BUT2">
+            <option data-year="mmi2" data-group="G1">BUT2 - G1</option>
+            <option data-year="mmi2" data-group="G21">BUT2 - G21</option>
+            <option data-year="mmi2" data-group="G22">BUT2 - G22</option>
+            <option data-year="mmi2" data-group="G3">BUT2 - G3</option>
+          </optgroup>
+
+          <optgroup label="BUT3">
+            <option data-year="mmi3" data-group="G1">BUT3 - G1</option>
+            <option data-year="mmi3" data-group="G21">BUT3 - G21</option>
+            <option data-year="mmi3" data-group="G22">BUT3 - G22</option>
+            <option data-year="mmi3" data-group="G3">BUT3 - G3</option>
+          </optgroup>
         </select>
-        <input type="text" id="searchbar" placeholder="Rechercher" />
+        <input type="text" id="searchbar" placeholder="Search" />
+        <select name="display" id="display">
+          <option value="day">Day</option>
+          <option value="week" selected>Week</option>
+          <option value="month">Month</option>
+        </select>
       </nav>
       <main id="calendar" style="height: 800px"></main>
     </div>
