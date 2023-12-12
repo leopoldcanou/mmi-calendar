@@ -67,6 +67,19 @@ month.addEventListener("click", function () {
   V.uicalendar.next();
 });
 
+let display = document.getElementById("display");
+display.addEventListener("change", function () {
+  let selectedOption = display.value;
+  console.log(selectedOption);
+  if (selectedOption === "month") {
+    V.uicalendar.changeView("month");
+  } else if (selectedOption === "week") {
+    V.uicalendar.changeView("week");
+  } else if (selectedOption === "day") {
+    V.uicalendar.changeView("day");
+  }
+});
+
 // check checkbox mmi1 mmi2 mmi3 and if checked display the calendar
 let mmi1 = document.getElementById("mmi1");
 mmi1.addEventListener("change", function () {
