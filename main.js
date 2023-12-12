@@ -118,9 +118,16 @@ data.addEventListener("change", function () {
 
 function searchEvents(content) {
   // stack mmi1 mmi2 mmi3 events in one array
-  let events = currentEvents;
+  let events;
+  if (currentEvents == undefined) {
+    events = M.getEvents("mmi1").concat(
+      M.getEvents("mmi2"),
+      M.getEvents("mmi3")
+    );
+  } else {
+    events = currentEvents;
+  }
 
-  console.log(events);
   let filteredEvents = events.filter(
     (event) =>
       event.title.toString().includes(content) ||
