@@ -33,15 +33,18 @@ M.init = async function () {
   mmi2data = ical.parseICS(mmi2data); // convertit data en JSON
   Events.mmi2 = new EventManager("mmi2", "MMI 2", "Agenda des MMI 2");
   Events.mmi2.addEvents(mmi2data);
-  for (const elements in mmi2data) {
-    console.log(mmi2data[elements].summary);
-  }
 
   let mmi3data = await fetch("./data/mmi3.ics"); // récupère le fichier
   mmi3data = await mmi3data.text(); // récupère au format texte
   mmi3data = ical.parseICS(mmi3data); // convertit data en JSON
   Events.mmi3 = new EventManager("mmi3", "MMI 3", "Agenda des MMI 3");
   Events.mmi3.addEvents(mmi3data);
+};
+
+let groupfilter = function (annee, groupe) {
+  for (const elements in annee) {
+    console.log(mmi2data[elements].summary);
+  }
 };
 
 export { M };
