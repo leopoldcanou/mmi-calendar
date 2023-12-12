@@ -72,8 +72,8 @@ let year = document.getElementById("year");
 year.addEventListener("change", function () {
   let selectedYear = year.value;
   let selectedCalendar = M.getEvents(selectedYear);
+
   if (selectedYear == "all") {
-    console.log("all");
     V.uicalendar.clear();
     V.uicalendar.createEvents(M.getEvents("mmi1"));
     V.uicalendar.createEvents(M.getEvents("mmi2"));

@@ -16,6 +16,11 @@ M.getEvents = function (annee) {
   return null;
 };
 
+let G1 = "G1";
+let G21 = "G21";
+let G22 = "G22";
+let G3 = "G3";
+
 M.init = async function () {
   let mmi1data = await fetch("./data/mmi1.ics"); // récupère le fichier
   mmi1data = await mmi1data.text(); // récupère au format texte
@@ -28,6 +33,9 @@ M.init = async function () {
   mmi2data = ical.parseICS(mmi2data); // convertit data en JSON
   Events.mmi2 = new EventManager("mmi2", "MMI 2", "Agenda des MMI 2");
   Events.mmi2.addEvents(mmi2data);
+  for (const elements in mmi2data) {
+    console.log(mmi2data[elements].summary);
+  }
 
   let mmi3data = await fetch("./data/mmi3.ics"); // récupère le fichier
   mmi3data = await mmi3data.text(); // récupère au format texte
