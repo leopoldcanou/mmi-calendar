@@ -95,6 +95,8 @@ mmi3.addEventListener("change", function () {
   }
 });
 
+let currentEvents;
+
 function filterEvents(year, group) {
   let events = M.getEvents(year);
   let filteredEvents = events.filter((event) =>
@@ -102,6 +104,7 @@ function filterEvents(year, group) {
   );
   V.uicalendar.clear(); // Clear existing events
   V.uicalendar.createEvents(filteredEvents); // Recreate events based on the filter
+  currentEvents = filteredEvents;
 }
 
 let data = document.getElementById("group");
@@ -111,4 +114,32 @@ data.addEventListener("change", function () {
   let selectedValue = selectedOption.getAttribute("data-group");
   //groupfilters(selectedDataId, selectedValue);
   filterEvents(selectedDataId, selectedValue);
+});
+
+function searchEvents(content) {
+  // stack mmi1 mmi2 mmi3 events in one array
+  let events;
+  if (currentEvents == undefined) {
+    events = M.getEvents("mmi1").concat(
+      M.getEvents("mmi2"),
+      M.getEvents("mmi3")
+    );
+  } else {
+    events = currentEvents;
+  }
+
+  let filteredEvents = events.filter(
+    (event) =>
+      event.title.toString().includes(content) ||
+      event.location.toString().includes(content)
+  );
+  console.log(filteredEvents);
+  V.uicalendar.clear(); // Clear existing events
+  V.uicalendar.createEvents(filteredEvents); // Recreate events based on the filter
+}
+
+let searchbar = document.getElementById("searchbar");
+searchbar.addEventListener("keyup", function () {
+  let searchValue = searchbar.value;
+  searchEvents(searchValue);
 });
