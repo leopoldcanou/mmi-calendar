@@ -239,7 +239,6 @@ saveFilter();
 function classFilter() {
   if (yearchecked !== null) {
     let yearcheckedarray = yearchecked.split(",");
-    console.log(yearcheckedarray);
     yearcheckedarray.forEach(function (element) {
       let checkbox = document.getElementById(element);
       checkbox.setAttribute("checked", "checked");
