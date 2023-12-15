@@ -40,7 +40,6 @@ body {
   font-family: PolySans;
   font-weight: 400;
   font-size: 1.25rem;
-
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
 }
 
@@ -137,4 +136,17 @@ input[type="checkbox"]:checked {
   fill: #736ced;
   scale: 1.5;
   padding-top: 1rem;
+}
+
+@media screen and (min-width: 450px) {
+  .nav__change {
+    position: static;
+    padding-top: 2rem;
+    margin-bottom: 0;
+  }
+  nav {
+    padding-top: 2rem;
+    gap: 1rem;
+    align-items: center;
+  }
 }

@@ -277,4 +277,18 @@ expand.addEventListener("click", function () {
   Expand();
 });
 
-Expand();
+// if window is a mobile device, hide sidebar else show sidebar
+if (window.matchMedia("(max-width: 450px)").matches) {
+  let sidebar = document.getElementById("nav");
+  sidebar.style.display = "block";
+  expand.style.display = "none";
+  reduce.style.display = "block";
+} else {
+  let sidebar = document.getElementById("nav");
+  sidebar.style.display = "block";
+  expand.style.display = "none";
+  reduce.style.display = "none";
+  // add flex direction row to sidebar
+  sidebar.style.display = "flex";
+  sidebar.style.flexDirection = "row";
+}
