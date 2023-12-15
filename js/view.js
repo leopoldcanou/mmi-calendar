@@ -17,10 +17,19 @@ V.uicalendar = new Calendar("#calendar", {
     taskView: false, // affiche les tâches
     eventView: ["time"], // affiche les événements
   },
+  month: {
+    startDayOfWeek: 1, // premier jour de la semaine
+    dayNames: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"], // nom des jours
+    workweek: true, // affiche uniquement les jours de la semaine
+    hourStart: 8, // heure de début
+    hourEnd: 20, // heure de fin
+    taskView: false, // affiche les tâches
+    eventView: ["time"], // affiche les événements
+  },
   template: {
     // permet de modifier l'affichage des événements
     time: function (event) {
-      return `<span style="color: white;">${event.title}</span>`;
+      return `<span style="color: black;">${event.title}</span>`;
     },
   },
 });

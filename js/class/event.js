@@ -9,22 +9,22 @@ class Event {
   #year;
   #backgroundColor = {
     mmi1: {
-      CM: "#FF0008",
-      TD: "#C80007",
-      TP: "#920005",
-      SAE: "#6D0004",
+      CM: "#FDCA9B",
+      TD: "#FCAB5F",
+      TP: "#FB8B23",
+      SAE: "#F07605",
     },
     mmi2: {
-      CM: "#00FBFF",
-      TD: "#00C5C8",
-      TP: "#00A1A4",
-      SAE: "#006B6D",
+      CM: "#FE9AC9",
+      TD: "#FD499D",
+      TP: "#F20272",
+      SAE: "#B60256",
     },
     mmi3: {
-      CM: "#00FF55",
-      TD: "#00C843",
-      TP: "#009231",
-      SAE: "#005B1E",
+      CM: "#ADF7FF",
+      TD: "#47EDFF",
+      TP: "#00CAE0",
+      SAE: "#00818F",
     },
   };
 
@@ -97,7 +97,7 @@ class Event {
       end: this.#end,
       location: this.#location,
       backgroundColor: this.color,
-      borderColor: "none",
+      borderColor: this.color,
       group: this.#groups,
     };
   }
