@@ -246,3 +246,35 @@ function classFilter() {
   }
 }
 classFilter();
+
+// CSS REDUCE EXPAND
+
+let reduce = document.getElementById("reduce");
+let expand = document.getElementById("expand");
+
+function Reduce() {
+  let sidebar = document.getElementById("nav");
+  sidebar.style.display = "none";
+  expand.style.display = "block";
+  reduce.style.display = "none";
+}
+
+// start reduce function on click on reduce button
+reduce.addEventListener("click", function () {
+  Reduce();
+});
+
+function Expand() {
+  let sidebar = document.getElementById("nav");
+  sidebar.style.display = "block";
+  expand.style.display = "none";
+  reduce.style.display = "block";
+}
+
+// start expand function on click on expand button
+
+expand.addEventListener("click", function () {
+  Expand();
+});
+
+Expand();

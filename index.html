@@ -9,7 +9,7 @@
   <body>
     <div>
       <header>
-        <nav>
+        <nav id="nav">
           <div class="nav__change">
             <button id="today">Today</button>
             <button id="prev">Previous</button>
@@ -61,8 +61,32 @@
               <option id="month" value="month">Month</option>
             </select>
           </div>
-          <input type="text" id="searchbar" placeholder="Search" />
+          <div class="div__searchbar">
+            <input type="text" id="searchbar" placeholder="Search" />
+          </div>
         </nav>
+        <div class="div__expand">
+          <svg
+            class="svg__expand"
+            id="expand"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 -960 960 960"
+            width="24"
+          >
+            <path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z" />
+          </svg>
+          <svg
+            class="svg__reduce"
+            id="reduce"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 -960 960 960"
+            width="24"
+          >
+            <path d="m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z" />
+          </svg>
+        </div>
       </header>
 
       <main id="calendar" style="height: 800px"></main>
