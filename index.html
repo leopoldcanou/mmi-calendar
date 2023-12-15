@@ -3,56 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>MMI Calendar</title>
   </head>
   <body>
     <div>
       <header>
-        <nav></nav>
-      </header>
-      <nav class="navbar">
-        <button id="today">Today</button>
-        <button id="prev">Previous</button>
-        <button id="next">Next</button>
-        <ul>
-          <li>
-            <input id="mmi1" type="checkbox" /><label for="mmi1">MMI1</label>
-          </li>
-          <li>
-            <input id="mmi2" type="checkbox" /><label for="mmi2">MMI2</label>
-          </li>
-          <li>
-            <input id="mmi3" type="checkbox" /><label for="mmi3">MMI3</label>
-          </li>
-        </ul>
-        <select name="group" id="group">
-          <optgroup label="BUT1">
-            <option data-year="mmi1" data-group="G1">BUT1 - G1</option>
-            <option data-year="mmi1" data-group="G21">BUT1 - G21</option>
-            <option data-year="mmi1" data-group="G22">BUT1 - G22</option>
-            <option data-year="mmi1" data-group="G3">BUT1 - G3</option>
-          </optgroup>
-          <optgroup label="BUT2">
-            <option data-year="mmi2" data-group="G1">BUT2 - G1</option>
-            <option data-year="mmi2" data-group="G21">BUT2 - G21</option>
-            <option data-year="mmi2" data-group="G22">BUT2 - G22</option>
-            <option data-year="mmi2" data-group="G3">BUT2 - G3</option>
-          </optgroup>
+        <nav>
+          <div class="nav__change">
+            <button id="today">Today</button>
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+          </div>
+          <ul class="ul__class">
+            <li>
+              <label for="mmi1"
+                ><input id="mmi1" type="checkbox" /><span>MMI1</span></label
+              >
+            </li>
+            <li>
+              <label for="mmi2">
+                <input id="mmi2" type="checkbox" /><span>MMI2</span></label
+              >
+            </li>
+            <li>
+              <label for="mmi3"
+                ><input id="mmi3" type="checkbox" /><span>MMI3</span></label
+              >
+            </li>
+          </ul>
+          <div class="div__filter">
+            <select name="group" id="group">
+              <optgroup label="BUT1">
+                <option data-year="mmi1" data-group="G1">BUT1 - G1</option>
+                <option data-year="mmi1" data-group="G21">BUT1 - G21</option>
+                <option data-year="mmi1" data-group="G22">BUT1 - G22</option>
+                <option data-year="mmi1" data-group="G3">BUT1 - G3</option>
+              </optgroup>
+              <optgroup label="BUT2">
+                <option data-year="mmi2" data-group="G1">BUT2 - G1</option>
+                <option data-year="mmi2" data-group="G21">BUT2 - G21</option>
+                <option data-year="mmi2" data-group="G22">BUT2 - G22</option>
+                <option data-year="mmi2" data-group="G3">BUT2 - G3</option>
+              </optgroup>
 
-          <optgroup label="BUT3">
-            <option data-year="mmi3" data-group="G1">BUT3 - G1</option>
-            <option data-year="mmi3" data-group="G21">BUT3 - G21</option>
-            <option data-year="mmi3" data-group="G22">BUT3 - G22</option>
-            <option data-year="mmi3" data-group="G3">BUT3 - G3</option>
-          </optgroup>
-        </select>
-        <input type="text" id="searchbar" placeholder="Search" />
-        <select name="display" id="display">
-          <option id="day" value="day">Day</option>
-          <option id="week" value="week">Week</option>
-          <option id="month" value="month">Month</option>
-        </select>
-      </nav>
+              <optgroup label="BUT3">
+                <option data-year="mmi3" data-group="G1">BUT3 - G1</option>
+                <option data-year="mmi3" data-group="G21">BUT3 - G21</option>
+                <option data-year="mmi3" data-group="G22">BUT3 - G22</option>
+                <option data-year="mmi3" data-group="G3">BUT3 - G3</option>
+              </optgroup>
+            </select>
+
+            <select name="display" id="display">
+              <option id="day" value="day">Day</option>
+              <option id="week" value="week">Week</option>
+              <option id="month" value="month">Month</option>
+            </select>
+          </div>
+          <input type="text" id="searchbar" placeholder="Search" />
+        </nav>
+      </header>
+
       <main id="calendar" style="height: 800px"></main>
     </div>
 

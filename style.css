@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "PolySans";
+  src: url("../data/PolySans-Median.ttf") format("truetype");
+  font-weight: 400; /* Numeric value for 'regular' */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PolySans";
+  src: url("../data/PolySans-Bulky.ttf") format("truetype");
+  font-weight: 700; /* Numeric value for 'bold' */
+  font-style: normal;
+}
+
+body {
+  font-family: "PolySans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+}
+
+.nav__change {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  gap: 1rem;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav__change button {
+  border: none;
+  padding: 0.5rem 1.5rem;
+  background-color: #736ced;
+  color: white;
+  border-radius: 1.5rem;
+  font-family: PolySans;
+  font-weight: 400;
+  font-size: 1.25rem;
+
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.ul__class {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  list-style: none;
+}
+
+input[type="checkbox"] {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: gray;
+  opacity: 0.5;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #736ced;
+  border: 1px solid #736ced;
+  opacity: 1;
+}
+
+.ul__class span {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.ul__class label {
+  display: flex;
+  align-items: center;
+}
+
+.div__filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.div__filter select {
+  padding: 0.5rem 1.5rem;
+  border: 3px solid #736ced;
+  border-radius: 1.5rem;
+  font-family: PolySans;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.25rem;
+  background-color: white;
+  appearance: none;
+  color: #736ced;
+}
