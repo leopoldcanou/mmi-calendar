@@ -100,3 +100,41 @@ input[type="checkbox"]:checked {
   appearance: none;
   color: #736ced;
 }
+
+.div__searchbar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.div__searchbar input {
+  padding: 0.5rem 2rem;
+  border: 3px solid #736ced;
+  border-radius: 1.5rem;
+  font-family: PolySans;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.25rem;
+  background-color: white;
+  appearance: none;
+  color: #736ced;
+}
+.div__searchbar input::placeholder {
+  color: #736ced;
+}
+
+.div__expand {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.div__expand svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #736ced;
+  scale: 1.5;
+  padding-top: 1rem;
+}

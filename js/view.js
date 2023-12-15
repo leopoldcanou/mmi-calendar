@@ -29,7 +29,7 @@ V.uicalendar = new Calendar("#calendar", {
   template: {
     // permet de modifier l'affichage des événements
     time: function (event) {
-      return `<span style="color: black;">${event.title}</span>`;
+      return `<span style="color: white;">${event.title}</span>`;
     },
   },
 });
